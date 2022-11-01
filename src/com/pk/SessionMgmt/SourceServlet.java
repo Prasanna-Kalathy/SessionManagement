@@ -17,11 +17,13 @@ public class SourceServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
 		Cookie[] cookies = request.getCookies();
-		for (int i = 0; i < cookies.length; i++) {
-			System.out.println(cookies[i].getName());
-			System.out.println(cookies[i].getValue());
+		if (cookies != null) {
+			for (int i = 0; i < cookies.length; i++) {
+				System.out.println(cookies[i].getName());
+				System.out.println(cookies[i].getValue());
+			}
 		}
-		response.addCookie(new Cookie("SecureToken","123"));
+		response.addCookie(new Cookie("SecureToken", "123"));
 
 		String UserName = request.getParameter("username");
 
@@ -30,7 +32,8 @@ public class SourceServlet extends HttpServlet {
 
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		out.print("<a href='TargetServlet'>Click Here To Get The User Name</a>");
+		String url = "TargetServlet?sessionId=123";
+		out.print("<a href=' " + url + "'>Click Here To Get The User Name</a>");
 
 	}
 }
