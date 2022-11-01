@@ -8,17 +8,17 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-public class TargetServer extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+public class TargetServlet extends HttpServlet {
+	private static final long serialVersionUID = 2L;
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
 		HttpSession session = request.getSession();
-		String userName = (String) session.getAttribute("user");
+		String UserName = (String) session.getAttribute("myuser");
 
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		out.println("<h1>User Name is " + userName + "</h1>");
+		out.println("<h1>User Name is " + UserName + "</h1>");
 
 	}
 

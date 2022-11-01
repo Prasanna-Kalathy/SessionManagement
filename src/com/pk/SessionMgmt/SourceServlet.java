@@ -14,14 +14,14 @@ public class SourceServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-		String username = request.getParameter("username");
+		String UserName = request.getParameter("username");
 
 		HttpSession session = request.getSession();
-		session.setAttribute("user", username);
+		session.setAttribute("myuser", UserName);
 
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		out.println("<button onclick='TargetServlet'>User Name</button>");
+		out.print("<a href='TargetServlet'>Click Here To Get The User Name</a>");
 
 	}
 }
