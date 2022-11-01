@@ -21,7 +21,8 @@ public class SourceServlet extends HttpServlet {
 			System.out.println(cookies[i].getName());
 			System.out.println(cookies[i].getValue());
 		}
-		
+		response.addCookie(new Cookie("SecureToken","123"));
+
 		String UserName = request.getParameter("username");
 
 		HttpSession session = request.getSession();
